@@ -16,19 +16,19 @@ public class GlobalExceptionHandle {
 
     @ExceptionHandler(AdocaoException.class)
     public ResponseEntity<ResponseError> adocaoException(AdocaoException e){
-        ResponseError response = new ResponseError(e.getMessage(),HttpStatus.BAD_REQUEST, LocalDateTime.now())
+        ResponseError response = new ResponseError(e.getMessage(),HttpStatus.BAD_REQUEST, LocalDateTime.now());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
     }
 
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<ResponseError> entityNotFoundException(EntityNotFoundException e){
-        ResponseError response = new ResponseError(e.getMessage(),HttpStatus.BAD_REQUEST, LocalDateTime.now())
+        ResponseError response = new ResponseError(e.getMessage(),HttpStatus.BAD_REQUEST, LocalDateTime.now());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ResponseError> trataException(Exception e){
-        ResponseError response = new ResponseError(e.getMessage(),HttpStatus.BAD_REQUEST, LocalDateTime.now())
+        ResponseError response = new ResponseError(e.getMessage(),HttpStatus.BAD_REQUEST, LocalDateTime.now());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(response);
     }
 
