@@ -46,8 +46,8 @@ public class AdocaoController {
     public ResponseEntity<String> aprovar(@RequestBody @Valid AprovarAdocaoDTO dto){
         try{
             this.service.aprovar(dto);
-        }catch (EntityNotFoundException e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Adoção não encontrada");
+        }catch (EntityNotFoundException | IllegalStateException | UnsupportedOperationException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
         return ResponseEntity.ok().build();
     }
